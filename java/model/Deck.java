@@ -10,7 +10,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Deck {
 
   private List<Card.Mutable> cards;
-  
 
   /**
    * Creates a deck with 52 cards of every color and value in random order.
@@ -34,8 +33,6 @@ public class Deck {
 
   /**
    * Gets the first card in the deck. The card is removed from the deck.
-
-   * @return the card to get and remove.
    */
   public Card.Mutable getCard() {
     Card.Mutable c = cards.get(0);
@@ -45,7 +42,7 @@ public class Deck {
   }
 
   private void shuffle() {
-    
+
     for (int i = 0; i < 1017; i++) {
       int index = ThreadLocalRandom.current().nextInt(cards.size());
       Card.Mutable c = cards.get(index);

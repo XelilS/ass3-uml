@@ -1,20 +1,29 @@
 package controller;
 
+import model.Card;
 import model.Game;
+import model.Observer;
 import view.View;
-
 
 /**
  * Scenario controller for playing the game.
  */
-public class Player {
+public class Player implements Observer {
+  public Game game;
+  public View view;
+
+  /**
+   * Simple constructor.
+   */
+  public Player(Game game, View view) {
+    this.game = game;
+    this.view = view;
+    game.addObservers(this);
+
+  }
 
   /**
    * Runs the play use case.
-
-   * @param game The game state.
-   * @param view The view to use.
-   * @return True as long as the game should continue.
    */
   public boolean play(Game game, View view) {
     view.displayWelcomeMessage();
@@ -37,5 +46,14 @@ public class Player {
     }
 
     return !(view.exit());
+  }
+
+  @Override
+  public void cardUpdate(Card card, model.Player player) {
+    if (player instanceof model.Dealer) {
+      view.dealerView(card);
+    } else {
+      view.playerView(card);
+    }
   }
 }

@@ -1,8 +1,11 @@
 package model.rules;
 
-import model.Player;
 import model.Card;
+import model.Player;
 
+/**
+ * Class made to implement the soft17 rule, implementing hitstrategy.
+ */
 public class Rulesoft17 implements HitStrategy {
 
   @Override
@@ -17,8 +20,7 @@ public class Rulesoft17 implements HitStrategy {
     if (points == 17) {
       int sub = ace * 10;
       return ((points - sub) == 7);
-    }
-    else {
+    } else {
       return (points < 17);
     }
   }

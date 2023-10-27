@@ -21,8 +21,6 @@ public class EnglishView implements View {
 
   /**
    * Returns pressed characters from the keyboard.
-
-   * @return the pressed character.
    */
   public int getInput() {
     try {
@@ -60,7 +58,7 @@ public class EnglishView implements View {
 
   /**
    * Displays the winner of the game.
-
+   * 
    * @param dealerIsWinner True if the dealer is the winner.
    */
   public void displayGameOver(boolean dealerIsWinner) {
@@ -71,6 +69,16 @@ public class EnglishView implements View {
       System.out.println("You Won!");
     }
 
+  }
+
+  @Override
+  public boolean hit() {
+    return playerInput == 'h';
+  }
+
+  @Override
+  public boolean stand() {
+    return playerInput == 's';
   }
 
   @Override
@@ -86,16 +94,6 @@ public class EnglishView implements View {
   @Override
   public boolean initiate() {
     return playerInput == 'p';
-  }
-
-  @Override
-  public boolean hit() {
-    return playerInput == 'h';
-  }
-  
-  @Override
-  public boolean stand() {
-    return playerInput == 's';
   }
 
   @Override

@@ -23,8 +23,6 @@ public class SwedishView implements View {
 
   /**
    * Returns pressed characters from the keyboard.
-
-   * @return the pressed character.
    */
   public int getInput() {
     try {
@@ -41,8 +39,6 @@ public class SwedishView implements View {
 
   /**
    * Displays a card.
-
-   * @param card The card to display.
    */
   public void displayCard(model.Card card) {
     if (card.getColor() == model.Card.Color.Hidden) {
@@ -50,7 +46,7 @@ public class SwedishView implements View {
     } else {
       String[] colors = { "Hjärter", "Spader", "Ruter", "Klöver" };
       String[] values = { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio",
-                          "knekt", "dam", "kung", "ess" };
+          "knekt", "dam", "kung", "ess" };
       System.out.println("" + colors[card.getColor().ordinal()] + " " + values[card.getValue().ordinal()]);
     }
   }
@@ -65,8 +61,6 @@ public class SwedishView implements View {
 
   /**
    * Displays the winner of the game.
-
-   * @param dealerIsWinner True if the dealer is the winner.
    */
   public void displayGameOver(boolean dealerIsWinner) {
     System.out.println("Slut: ");
@@ -87,18 +81,6 @@ public class SwedishView implements View {
   }
 
   @Override
-  public void input() {
-    playerInput = getInput();
-  }
-  @Override
-  public boolean exit() {
-    return playerInput == 'q';
-  }
-  @Override
-  public boolean initiate() {
-    return playerInput == 'p';
-  }
-  @Override
   public boolean hit() {
     return playerInput == 'h';
   }
@@ -109,11 +91,26 @@ public class SwedishView implements View {
   }
 
   @Override
+  public void input() {
+    playerInput = getInput();
+  }
+
+  @Override
+  public boolean exit() {
+    return playerInput == 'q';
+  }
+
+  @Override
+  public boolean initiate() {
+    return playerInput == 'p';
+  }
+
+  @Override
   public void dealerView(Card card) {
     System.out.println("nuvarande dealer har: ");
     displayCard(card);
   }
-  
+
   @Override
   public void playerView(Card card) {
     System.out.println("nuvarande spelare har: ");

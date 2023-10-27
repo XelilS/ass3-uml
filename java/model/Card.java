@@ -19,16 +19,12 @@ public class Card {
     Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Knight, Queen, King, Ace, Count, Hidden
   }
 
-
   /**
    * Represents a Mutable playing card, that can be shown or hidden.
    */
   public static class Mutable extends Card {
     /**
-      * Initalizing constructor that creates a hidden card.
-
-      * @param color The color of the card.
-      * @param value The value of the card.
+     * Initalizing constructor that creates a hidden card.
      */
     public Mutable(Color color, Value value) {
       super(color, value);
@@ -36,9 +32,7 @@ public class Card {
 
     /**
      * Initalizing constructor that creates a hidden card.
-
-      * @param show true if the card is to be shown.
-      */
+     */
     public void show(boolean show) {
       isHidden = !show;
     }
@@ -50,9 +44,6 @@ public class Card {
 
   /**
    * Initalizing constructor that creates a hidden card.
-
-   * @param color The color of the card.
-   * @param value The value of the card.
    */
   public Card(Color color, Value value) {
     this.value = value;
@@ -62,8 +53,6 @@ public class Card {
 
   /**
    * Returns the color of the card or hidden if the card is face down.
-
-   * @return The card color.
    */
   public Color getColor() {
     if (isHidden) {
@@ -74,8 +63,6 @@ public class Card {
 
   /**
    * returns the value of the card or hidden if the card is face down.
-
-   * @return The card value.
    */
   public Value getValue() {
     if (isHidden) {
@@ -84,5 +71,4 @@ public class Card {
     return value;
   }
 
-  
 }

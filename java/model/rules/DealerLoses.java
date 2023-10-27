@@ -1,6 +1,9 @@
 package model.rules;
 
-public class DealerLoses implements WinnerRule{
+/**
+ * class implementing WinnerRule, handles when the dealer loses.
+ */
+public class DealerLoses implements WinnerRule {
   @Override
   public boolean doesDealerWinTie() {
     return false;

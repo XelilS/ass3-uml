@@ -16,24 +16,6 @@ public class Player {
   }
 
   /**
-   * Adds a card to the Player's hand. 
-
-   * @param addToHand The card to add to the hand.
-   */
-  public void dealCard(Card.Mutable addToHand) {
-    hand.add(addToHand);
-  }
-
-  /**
-   * Returns the cards in thand.
-
-   * @return the cards in the Player's hand
-   */
-  public Iterable<Card> getHand() {
-    return new LinkedList<Card>(hand);
-  }
-
-  /**
    * Removes all cards from the hand.
    */
   public void clearHand() {
@@ -50,9 +32,21 @@ public class Player {
   }
 
   /**
-   * Calculates the score of the hand according to Black Jack rules.
+   * Adds a card to the Player's hand.
+   */
+  public void dealCard(Card.Mutable addToHand) {
+    hand.add(addToHand);
+  }
 
-   * @return The score.
+  /**
+   * Returns the cards in thand.
+   */
+  public Iterable<Card> getHand() {
+    return new LinkedList<Card>(hand);
+  }
+
+  /**
+   * Calculates the score of the hand according to Black Jack rules.
    */
   public int calcScore() {
     // the number of scores is dependant on the number of scorable values
