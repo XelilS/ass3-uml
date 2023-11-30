@@ -39,7 +39,7 @@ public class Player {
   }
 
   /**
-   * Returns the cards in thand.
+   * Returns the cards in hand.
    */
   public Iterable<Card> getHand() {
     return new LinkedList<Card>(hand);

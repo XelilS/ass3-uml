@@ -43,7 +43,7 @@ public class Dealer extends Player {
   }
 
   /**
-   * Deal card(s).
+   * Deals a card to a specified player and determines its visibility.
    */
   public void cardDeal(Player p, boolean viewC) {
     Card.Mutable card = deck.getCard();
@@ -53,7 +53,9 @@ public class Dealer extends Player {
   }
 
   /**
-   * Gives the player one more card if possible. I.e. the player hits.
+   * Allows a player to take an additional card (hit) if certain conditions are
+   * met.
+   * Returns true if the player was able to take a card, false otherwise.
    */
   public boolean hit(Player player) {
     if (deck != null && player.calcScore() < maxScore && !isGameOver()) {
@@ -68,7 +70,8 @@ public class Dealer extends Player {
   }
 
   /**
-   * Checks if the dealer is the winner compared to a player.
+   * Determines if the dealer has won against a specified player.
+   * Returns true if the dealer is the winner, false otherwise.
    */
   public boolean isDealerWinner(Player player) {
     if (player.calcScore() > maxScore) {
@@ -80,7 +83,8 @@ public class Dealer extends Player {
   }
 
   /**
-   * Checks if the game is over, i.e. the dealer can take no more cards.
+   * Checks if the game has ended, meaning the dealer can't take more cards.
+   * Returns true if the game is over, false otherwise.
    */
   public boolean isGameOver() {
     if (deck != null && hitRule.doHit(this) != true) {
@@ -90,7 +94,9 @@ public class Dealer extends Player {
   }
 
   /**
-   * Player stopped taking cards, dealers turn.
+   * Represents the action when a player decides not to take any more cards and
+   * it's the dealer's turn.
+   * The dealer will continue to take cards until certain conditions are met.
    */
   public boolean stand() {
     showHand();
@@ -105,7 +111,7 @@ public class Dealer extends Player {
   }
 
   /**
-   * Inform registered observers about the card status.
+   * Notifies all registered observers about the current status of a card.
    */
   public void notifyObservers(Card card, Player player) {
     for (Observer obs : totObservers) {
@@ -114,7 +120,8 @@ public class Dealer extends Player {
   }
 
   /**
-   * Deal cards.
+   * Deals a card to a player and determines its visibility.
+   * Also notifies observers about the card status and introduces a delay.
    */
   public void dealCardToPlayer(Player player, boolean displayCard) {
     Card.Mutable cardMutable = deck.getCard();
@@ -129,7 +136,7 @@ public class Dealer extends Player {
   }
 
   /**
-   * Addition of an observer.
+   * Registers a new observer.
    */
   public void addObserver(Observer observer) {
     totObservers.add(observer);
